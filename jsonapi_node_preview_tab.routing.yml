@@ -1,0 +1,12 @@
+jsonapi_node_preview_tab.preview:
+  path: '/node/{node}/json-preview'
+  defaults:
+    _title_callback: '\Drupal\jsonapi_node_preview_tab\Controller\JsonapiNodePreviewTabController::getTitle'
+    _controller: '\Drupal\jsonapi_node_preview_tab\Controller\JsonapiNodePreviewTabController::build'
+  requirements:
+    _permission: 'access jsonapi preview tab'
+    # node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node

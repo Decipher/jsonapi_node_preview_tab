@@ -1,0 +1,5 @@
+jsonapi_node_preview_tab.preview:
+  route_name: jsonapi_node_preview_tab.preview
+  title: 'JSON:API'
+  base_route: entity.node.canonical
+  weight: 100
