@@ -3,6 +3,7 @@
 namespace Drupal\jsonapi_node_preview_tab\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 
 /**
@@ -14,8 +15,11 @@ class JsonapiNodePreviewTabController extends ControllerBase {
    * Builds the response.
    */
   public function build(Node $node) {
-// ddl($node);
-    $path = '/jsonapi/node/' . $node->bundle() . '/' . $node->uuid();
+    $path = Url::fromRoute(
+      "jsonapi.node--{$node->bundle()}.individual",
+      ['entity' => $node->uuid()],
+      ['absolute' => TRUE]
+    )->toString();
 
     $build['preview'] = [
       '#type' => 'inline_template',
