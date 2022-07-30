@@ -2,8 +2,7 @@ name: JSON:API Node Preview Tab
 type: module
 description: Adds a tab to nodes to allow easy preview of the node&#039;s JSON:API structure.
 package: Web services
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 dependencies:
   - drupal:node
   - drupal:jsonapi
