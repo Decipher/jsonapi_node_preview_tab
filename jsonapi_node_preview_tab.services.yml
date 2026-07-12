@@ -1,0 +1,5 @@
+
+services:
+  Drupal\jsonapi_node_preview_tab\Hook\JsonapiNodePreviewTabHooks:
+    class: Drupal\jsonapi_node_preview_tab\Hook\JsonapiNodePreviewTabHooks
+    autowire: true

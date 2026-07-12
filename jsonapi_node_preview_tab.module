@@ -7,15 +7,17 @@
 
 declare(strict_types=1);
 
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\jsonapi_node_preview_tab\Hook\JsonapiNodePreviewTabHooks;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_entity_type_build().
  */
-function jsonapi_node_preview_tab_entity_type_build(array &$entity_types): void {
-  // @todo make this work for other entity types?
-  $entity_type_id = 'node';
-  $entity_types[$entity_type_id]->setLinkTemplate('json-preview', "/$entity_type_id/{{$entity_type_id}}/json-preview");
+#[LegacyHook]
+function jsonapi_node_preview_tab_entity_type_build(array &$entity_types)
+{
+    \Drupal::service(JsonapiNodePreviewTabHooks::class)->entityTypeBuild($entity_types);
 }
 
 /**
