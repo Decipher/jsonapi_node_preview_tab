@@ -1,0 +1,28 @@
+{
+    "name": "drupal/jsonapi_node_preview_tab",
+    "description": "Provides jsonapi_node_preview_tab functionality.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "jsonapi_node_preview_tab@yourusername.com",
+            "homepage": "https://www.drupal.org/u/yourusername",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://drupal.org/project/jsonapi_node_preview_tab",
+    "support": {
+        "issues": "https://drupal.org/project/issues/jsonapi_node_preview_tab",
+        "source": "https://git.drupalcode.org/project/jsonapi_node_preview_tab"
+    },
+    "require": {
+        "php": ">=8.3"
+    },
+    "require-dev": {
+        "drupal/autologout": "^2"
+    },
+    "suggest": {
+        "drupal/config_ignore": "Ignore certain configuration during import."
+    }
+}
