@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\jsonapi_node_preview_tab\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
@@ -14,7 +16,7 @@ class JsonapiNodePreviewTabController extends ControllerBase {
   /**
    * Builds the response.
    */
-  public function build(Node $node) {
+  public function build(Node $node): array {
     $path = Url::fromRoute(
       "jsonapi.node--{$node->bundle()}.individual",
       ['entity' => $node->uuid()],
@@ -23,7 +25,7 @@ class JsonapiNodePreviewTabController extends ControllerBase {
 
     $build['preview'] = [
       '#type' => 'inline_template',
-      '#template' => '<iframe src="{{ url }}" allow="fullscren" style="width:100%;min-height:600px;"></iframe>',
+      '#template' => '<iframe src="{{ url }}" allow="fullscreen" style="width:100%;min-height:600px;"></iframe>',
       '#context' => [
         'url' => $path,
       ],
@@ -36,10 +38,7 @@ class JsonapiNodePreviewTabController extends ControllerBase {
    * Builds the response.
    */
   public function getTitle(Node $node) {
-
-    $title = $this->t('JSON:API Preview for @title', ['@title' => $node->label()]);
-
-    return $title;
+    return $this->t('JSON:API Preview for @title', ['@title' => $node->label()]);
   }
 
 }
