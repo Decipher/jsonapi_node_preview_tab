@@ -7,43 +7,23 @@
 
 declare(strict_types=1);
 
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Hook\Attribute\LegacyHook;
 use Drupal\jsonapi_node_preview_tab\Hook\JsonapiNodePreviewTabHooks;
-use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_entity_type_build().
  */
 #[LegacyHook]
-function jsonapi_node_preview_tab_entity_type_build(array &$entity_types)
-{
-    \Drupal::service(JsonapiNodePreviewTabHooks::class)->entityTypeBuild($entity_types);
+function jsonapi_node_preview_tab_entity_type_build(array &$entity_types): void {
+  \Drupal::service(JsonapiNodePreviewTabHooks::class)->entityTypeBuild($entity_types);
 }
 
 /**
- * Declares entity operations.
- *
- * @param \Drupal\Core\Entity\EntityInterface $entity
- *   The entity on which the linked operations will be performed.
- *
- * @return array
- *   An operations array as returned by
- *   EntityListBuilderInterface::getOperations().
- *
- * @see \Drupal\Core\Entity\EntityListBuilderInterface::getOperations()
+ * Implements hook_entity_operation().
  */
-function jsonapi_node_preview_tab_entity_operation(EntityInterface $entity): array {
-  if ($entity->hasLinkTemplate('json-preview')) {
-    if (!\Drupal::currentUser()->hasPermission('access jsonapi preview tab')) {
-      return [];
-    }
-    return [
-      'json' => [
-        'title' => t('JSON'),
-        'weight' => 50,
-        'url' => $entity->toUrl('json-preview'),
-      ],
-    ];
-  }
-  return [];
+#[LegacyHook]
+function jsonapi_node_preview_tab_entity_operation(EntityInterface $entity, ?CacheableMetadata $cacheability = NULL): array {
+  return \Drupal::service(JsonapiNodePreviewTabHooks::class)->entityOperation($entity, $cacheability);
 }

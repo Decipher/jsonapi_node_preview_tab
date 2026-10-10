@@ -21,7 +21,7 @@ Submit bug reports and feature suggestions, or track changes in the
 
 ## Requirements
 
-- Drupal 10.3 or 11
+- Drupal 10.3, 11 or 12
 - JSON:API (`jsonapi`, Drupal core)
 - Node (`node`, Drupal core)
 

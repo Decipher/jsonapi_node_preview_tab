@@ -55,4 +55,12 @@ parameters:
         - '#^Attribute class PHPUnit\\Framework\\Attributes\\.+ does not exist\.$#'
       reportUnmatched: false
 
+    -
+      # Hook attributes arrived in Drupal 11.1. PHP resolves attribute classes
+      # lazily, so they are inert on Drupal 10, where the #[LegacyHook]
+      # functions in the .module file run instead.
+      messages:
+        - '#^Attribute class Drupal\\Core\\Hook\\Attribute\\Hook does not exist\.$#'
+      reportUnmatched: false
+
   reportUnmatchedIgnoredErrors: false
