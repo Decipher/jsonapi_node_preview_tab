@@ -65,6 +65,11 @@ tests, and the example `.install`, `.libraries.yml`, `.links.menu.yml` and
 - `deploy.yml` is removed. Drupal.org is the canonical repository, so nothing
   is mirrored to it from GitHub.
 
+### `.devtools/`
+
+`deploy` is removed, with its row in `.devtools/README.md`. Only `deploy.yml`
+called it.
+
 ### `phpcs.xml`
 
 DrupalCI finds `phpcs.xml` in the repository root and uses it. It does not
