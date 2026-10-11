@@ -5,12 +5,14 @@
  * Primary module hooks for JSON:API Node Preview Tab module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Entity\EntityInterface;
 
- /**
+/**
  * Implements hook_entity_type_build().
  */
-function jsonapi_node_preview_tab_entity_type_build(array &$entity_types) {
+function jsonapi_node_preview_tab_entity_type_build(array &$entity_types): void {
   // @todo make this work for other entity types?
   $entity_type_id = 'node';
   $entity_types[$entity_type_id]->setLinkTemplate('json-preview', "/$entity_type_id/{{$entity_type_id}}/json-preview");
@@ -28,10 +30,10 @@ function jsonapi_node_preview_tab_entity_type_build(array &$entity_types) {
  *
  * @see \Drupal\Core\Entity\EntityListBuilderInterface::getOperations()
  */
-function jsonapi_node_preview_tab_entity_operation(EntityInterface $entity) {
+function jsonapi_node_preview_tab_entity_operation(EntityInterface $entity): array {
   if ($entity->hasLinkTemplate('json-preview')) {
     if (!\Drupal::currentUser()->hasPermission('access jsonapi preview tab')) {
-      return;
+      return [];
     }
     return [
       'json' => [
@@ -41,4 +43,5 @@ function jsonapi_node_preview_tab_entity_operation(EntityInterface $entity) {
       ],
     ];
   }
+  return [];
 }

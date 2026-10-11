@@ -1,0 +1,18 @@
+{
+  "name": "drupal/jsonapi_node_preview_tab",
+  "type": "drupal-module",
+  "description": "Adds a tab to nodes to allow easy preview of the node's JSON:API structure.",
+  "keywords": [
+    "Drupal",
+    "JSON API"
+  ],
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://www.drupal.org/project/jsonapi_node_preview_tab",
+  "support": {
+    "issues": "https://git.drupalcode.org/project/jsonapi_node_preview_tab/-/work_items",
+    "source": "https://git.drupalcode.org/project/jsonapi_node_preview_tab"
+  },
+  "require": {
+    "drupal/core": "^10.3 || ^11"
+  }
+}

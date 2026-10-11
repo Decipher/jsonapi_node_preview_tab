@@ -1,0 +1,17 @@
+{
+  "name": "@drupal/jsonapi_node_preview_tab",
+  "version": "0.1.0",
+  "description": "Adds a tab to nodes to allow easy preview of the node's JSON:API structure.",
+  "license": "GPL-2.0-or-later",
+  "contributors": [],
+  "scripts": {
+    "lint-spell": "cspell --no-progress"
+  },
+  "engines": {
+    "npm": ">=8.19.4",
+    "node": ">=18.20.8"
+  },
+  "devDependencies": {
+    "cspell": "^8.19.4"
+  }
+}
