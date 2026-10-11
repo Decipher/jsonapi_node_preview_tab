@@ -88,6 +88,8 @@ install `composer.dev.json`, so:
 - A new `ignoreErrors` entry covers `drupalCreateUser()`, which returns
   `User|false` on Drupal 10 and `UserInterface` on Drupal 11. The tests narrow
   the type for Drupal 10, which Drupal 11 reports as redundant.
+- Another entry covers `Drupal\Core\Hook\Attribute\Hook`, which Drupal 10 does
+  not have. The `#[LegacyHook]` functions in the `.module` file run there instead.
 
 ### `.cspell.json`
 
